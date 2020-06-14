@@ -11,6 +11,12 @@ const setQS = (selector, value) => {
     document.querySelector(selector).innerText = value; 
 };
 
+//----------------input keyup ENTER-----------------------------------------
+
+const enter = (event) => {
+    if (event.key === 'Enter') {}/////();
+};
+
 const addZero = function(i) {
     if (i < 10) {
       i = "0" + i;
@@ -34,11 +40,20 @@ const changeBackground = function(hour) {
     }
 };
 
+const getDay = function () {
+    let day = new Date();
+    setQS('.day', `${months[day.getMonth()]} ${day.getDate()}, ${days[day.getDay()]}`);
+    setQS('.time', `${addZero(day.getHours())} : ${addZero(day.getMinutes())} : ${addZero(day.getSeconds())}`);
+    changeBackground(day.getHours());
+};
+
 (function () {
+    getDay();
     setInterval(() => { 
-        let day = new Date();
-        setQS('.day', `${months[day.getMonth()]} ${day.getDate()}, ${days[day.getDay()]}`);
-        setQS('.time', `${addZero(day.getHours())} : ${addZero(day.getMinutes())} : ${addZero(day.getSeconds())}`);
-        changeBackground(day.getHours()); 
+        getDay();
     }, 1000);
 })();
+
+document.querySelector('.fas').addEventListener('click', () => {
+    document.querySelector('.input').style.display = 'inline';
+});
