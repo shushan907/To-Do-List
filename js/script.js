@@ -2,26 +2,23 @@ const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satur
 const months = ["January", "February", "March", "April", "May", "June", "July", "August",
                 "September", "October", "November", "December"];
 
+const dayInfo = document.querySelector('.dayInfo');
+
+const URL = ["url('./image/morning.jpg')","url('./image/afternoon.jpg')", 
+            "url('./image/evening.jpg')", "url('./image/night.jpg')"];
+
 const setQS = (selector, value) => {
     document.querySelector(selector).innerText = value; 
 };
 
-const dayInfo = document.querySelector('.dayInfo');
-const URL = ["url('../image/morning.jpg')","url('../image/afternoon.jpg')", "url('../image/evening.jpg')", "url('../image/night.jpg')"];
-(function () {
-    const day = new Date();
-    function addZero(i) {
-        if (i < 10) {
-          i = "0" + i;
-        }
-        return i;
+const addZero = function(i) {
+    if (i < 10) {
+      i = "0" + i;
     }
-    setQS('.day', `${months[day.getMonth()]} ${day.getDate()}, ${days[day.getDay()]}`);
-    setQS('.time', `${addZero(day.getHours())} : ${addZero(day.getMinutes())} : ${addZero(day.getSeconds())}`);
-    changeBackground(day.getHours());
-})();
+    return i;
+};
 
-function changeBackground(hour) {
+const changeBackground = function(hour) {
     if(hour > 5 && hour < 13) {
         dayInfo.style.backgroundImage = URL[0];
     } else if (hour > 12 && hour < 19) {
@@ -32,3 +29,12 @@ function changeBackground(hour) {
         dayInfo.style.backgroundImage = URL[3];
     }
 };
+
+(function () {
+    setInterval(() => { 
+        let day = new Date();
+        setQS('.day', `${months[day.getMonth()]} ${day.getDate()}, ${days[day.getDay()]}`);
+        setQS('.time', `${addZero(day.getHours())} : ${addZero(day.getMinutes())} : ${addZero(day.getSeconds())}`);
+        changeBackground(day.getHours()); 
+    }, 1000);
+})();
