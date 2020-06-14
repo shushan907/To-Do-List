@@ -5,6 +5,7 @@ body {
 }
 
 .main {
+    position: relative;
     margin: 10px auto;
     width: 718px;
     background-color: white;
@@ -33,4 +34,24 @@ body {
 
 .day {
     left: 5px;
+}
+
+.add {
+    padding-left: 10px;
+    position: absolute;
+    left: 15px;
+    bottom: 12px;
+}
+
+.input {
+    width: 600px;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 20px;
+    border: 1px solid #BAAEE7;
+    border-radius: 8px;
+    background-color: antiquewhite;
+    color:#9186b9;
+    font-size: 20px;
+    font-weight: bold;
 }
