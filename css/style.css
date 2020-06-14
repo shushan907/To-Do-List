@@ -59,3 +59,19 @@ body {
 .input:focus {
     outline: none;
 }
+
+.list div {
+    position: relative;
+    width: 98%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #BAAEE7;
+    font-size: 20px;
+    padding-left: 10px;
+    color: #9186b9;
+}
+
+.delete {
+    position: absolute;
+    right: 20px;
+}  

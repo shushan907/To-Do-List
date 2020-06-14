@@ -1,3 +1,4 @@
+let count = 0;
 const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August",
                 "September", "October", "November", "December"];
@@ -56,4 +57,14 @@ const getDay = function () {
 
 document.querySelector('.fas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';
+    count++;
 });
+
+const addCircleAndDelete = function (x) {
+    document.querySelector(`.circle${x}`).innerText = 'o';
+    document.querySelector(`.delete${x}`).innerText = 'x';
+}
+
+for(let i = 1; i < 6; i++) {
+    addCircleAndDelete(i);
+}
