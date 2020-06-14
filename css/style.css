@@ -1,0 +1,32 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+.main {
+    margin: 0 auto;
+    width: 70%;
+    background-color: whitesmoke;
+}
+
+.dayInfo {
+    height: 250px;
+    position: relative;
+}
+
+.day, .time {
+    position: absolute;
+    bottom: 5px;
+    color: #FAD8B8;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.time {
+    right: 5px;
+}
+
+.day {
+    left: 5px;
+}
