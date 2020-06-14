@@ -1,4 +1,4 @@
-let count = 0;
+let count = 1;
 const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August",
                 "September", "October", "November", "December"];
@@ -10,12 +10,6 @@ const URL = ["url('./image/morning.jpg')","url('./image/afternoon.jpg')",
 
 const setQS = (selector, value) => {
     document.querySelector(selector).innerText = value; 
-};
-
-//----------------input keyup ENTER-----------------------------------------
-
-const enter = (event) => {
-    if (event.key === 'Enter') {}/////();
 };
 
 const addZero = function(i) {
@@ -55,10 +49,24 @@ const getDay = function () {
     }, 1000);
 })();
 
-document.querySelector('.fas').addEventListener('click', () => {
-    document.querySelector('.input').style.display = 'inline';
-    count++;
-});
+const addToDoList = function () {
+    const inputValue = document.querySelector('.input').value;
+    if(inputValue) {
+        document.querySelector(`.list${count}`).style.display = 'block';
+        document.querySelector(`.text${count}`).innerText = inputValue;
+        document.querySelector('.input').value = '';
+        document.querySelector('.input').style.display = 'none';
+        count++;
+    } else alert('You must write something!')
+}
+
+//----------------input keyup ENTER-----------------------------------------
+
+const enter = (event) => {
+    if (event.key === 'Enter') {
+        addToDoList();
+    }
+};
 
 const addCircleAndDelete = function (x) {
     document.querySelector(`.circle${x}`).innerText = 'o';
@@ -68,3 +76,7 @@ const addCircleAndDelete = function (x) {
 for(let i = 1; i < 6; i++) {
     addCircleAndDelete(i);
 }
+
+document.querySelector('.fas').addEventListener('click', () => {
+    document.querySelector('.input').style.display = 'inline';
+});
