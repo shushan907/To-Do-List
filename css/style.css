@@ -5,20 +5,24 @@ body {
 }
 
 .main {
-    margin: 0 auto;
+    margin: 10px auto;
     width: 718px;
-    background-color: whitesmoke;
+    background-color: white;
+    border: 1px solid #BAAEE7;
+    min-height: 600px;
+    border-radius: 15px;
 }
 
 .dayInfo {
     height: 250px;
     position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .day, .time {
     position: absolute;
     bottom: 5px;
-    color: #FAD8B8;
     font-size: 25px;
     font-weight: bold;
 }

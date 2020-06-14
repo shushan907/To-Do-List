@@ -21,12 +21,16 @@ const addZero = function(i) {
 const changeBackground = function(hour) {
     if(hour > 5 && hour < 13) {
         dayInfo.style.backgroundImage = URL[0];
+        dayInfo.style.color = '#BAAEE7';
     } else if (hour > 12 && hour < 19) {
         dayInfo.style.backgroundImage = URL[1];
+        dayInfo.style.color = '#BAAEE7';
     } else if (hour > 18 && hour < 23) {
         dayInfo.style.backgroundImage = URL[2];
+        dayInfo.style.color = '#FAD8B8';
     } else {
         dayInfo.style.backgroundImage = URL[3];
+        dayInfo.style.color = '#FAD8B8';
     }
 };
 
