@@ -50,43 +50,61 @@ const getDay = function () {
     }, 1000);
 })();
 
+const addDiv = function() {
+    const div = document.createElement('div');
+    div.classList.add(`list${count}`);
+    document.querySelector('.list').appendChild(div);
+    const circle = document.createElement('span');
+    circle.classList.add(`circle${count}`);
+    document.querySelector(`.list${count}`).appendChild(circle);
+    const text = document.createElement('span');
+    text.classList.add(`text${count}`);
+    document.querySelector(`.list${count}`).appendChild(text);
+    const del = document.createElement('span');
+    del.classList.add(`delete${count}`, `delete`);
+    document.querySelector(`.list${count}`).appendChild(del);
+};
+
 const addToDoList = function () {
     const inputValue = document.querySelector('.input').value;
     if(inputValue) {
-        document.querySelector(`.list${count}`).style.display = 'block';
+        Sdocument.querySelector(`.list${count}`).style.display = 'block';
         document.querySelector(`.text${count}`).innerText = inputValue;
         document.querySelector('.input').value = '';
         document.querySelector('.input').style.display = 'none';
         count++;
         countShow++;
     } else alert('You must write something!')
-}
+};
+
+const eventListener = function() {
+    document.querySelector(`.circle${count}`).addEventListener('click', () => {
+        document.querySelector(`.circle${count}`).style.color = 'green';
+        document.querySelector(`.circle${count}`).innerText = 'v';
+        document.querySelector(`.text${count}`).style.textDecoration = 'line-through';
+    });
+    
+    document.querySelector(`.delete${count}`).addEventListener('click', () => {
+        document.querySelector(`.list${count}`).style.display = 'none';
+        countShow--;
+    });
+};
+
+const addCircleAndDelete = function () {
+    document.querySelector(`.circle${count}`).innerText = 'o';
+    document.querySelector(`.delete${count}`).innerText = 'x';
+};
 
 //----------------input keyup ENTER-----------------------------------------
 
 const enter = (event) => {
     if (event.key === 'Enter') {
+        addDiv();
+        eventListener();
+        addCircleAndDelete();
         addToDoList();
     }
 };
-
-const addCircleAndDelete = function (x) {
-    document.querySelector(`.circle${x}`).innerText = 'o';
-    document.querySelector(`.delete${x}`).innerText = 'x';
-}
-
-for(let i = 1; i < 6; i++) {
-    addCircleAndDelete(i);
-    document.querySelector(`.circle${i}`).addEventListener('click', () => {
-        document.querySelector(`.circle${i}`).style.color = 'green';
-        document.querySelector(`.circle${i}`).innerText = 'v';
-        document.querySelector(`.text${i}`).style.textDecoration = 'line-through';
-    });
-    document.querySelector(`.delete${i}`).addEventListener('click', () => {
-        document.querySelector(`.list${i}`).style.display = 'none';
-        countShow--;
-    })
-}
 
 document.querySelector('.fas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';

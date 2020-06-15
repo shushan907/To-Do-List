@@ -61,7 +61,6 @@ body {
 }
 
 .list div {
-    display: none;
     position: relative;
     width: 98%;
     height: 40px;
