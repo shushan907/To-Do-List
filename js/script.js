@@ -63,31 +63,26 @@ const addDiv = function() {
     const del = document.createElement('span');
     del.classList.add(`delete${count}`, `delete`);
     document.querySelector(`.list${count}`).appendChild(del);
+    circle.addEventListener('click', () => {
+        circle.style.color = 'green';
+        circle.innerText = 'v';
+        text.style.textDecoration = 'line-through';
+    });
+    del.addEventListener('click', () => {
+        div.style.display = 'none';
+        countShow--;
+    })
 };
 
 const addToDoList = function () {
     const inputValue = document.querySelector('.input').value;
     if(inputValue) {
-        Sdocument.querySelector(`.list${count}`).style.display = 'block';
         document.querySelector(`.text${count}`).innerText = inputValue;
         document.querySelector('.input').value = '';
         document.querySelector('.input').style.display = 'none';
         count++;
         countShow++;
     } else alert('You must write something!')
-};
-
-const eventListener = function() {
-    document.querySelector(`.circle${count}`).addEventListener('click', () => {
-        document.querySelector(`.circle${count}`).style.color = 'green';
-        document.querySelector(`.circle${count}`).innerText = 'v';
-        document.querySelector(`.text${count}`).style.textDecoration = 'line-through';
-    });
-    
-    document.querySelector(`.delete${count}`).addEventListener('click', () => {
-        document.querySelector(`.list${count}`).style.display = 'none';
-        countShow--;
-    });
 };
 
 const addCircleAndDelete = function () {
@@ -100,7 +95,6 @@ const addCircleAndDelete = function () {
 const enter = (event) => {
     if (event.key === 'Enter') {
         addDiv();
-        eventListener();
         addCircleAndDelete();
         addToDoList();
     }
