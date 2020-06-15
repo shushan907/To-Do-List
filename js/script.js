@@ -73,7 +73,9 @@ const addDiv = function() {
         text.style.textDecoration = 'line-through';
     });
 
-   
+    edit.addEventListener('click', () => {
+        document.querySelector('.inputEdit').style.display = 'block';
+    });
     del.addEventListener('click', () => {
         div.style.display = 'none';
         countShow--;

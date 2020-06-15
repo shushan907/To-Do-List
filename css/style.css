@@ -47,7 +47,7 @@ body {
     bottom: 12px;
 }
 
-.input {
+.input, .inputEdit {
     display: none;
     width: 600px;
     height: 40px;
@@ -60,7 +60,14 @@ body {
     font-size: 20px;
 }
 
-.input:focus {
+.inputEdit{
+    position: absolute;
+    bottom: 5px;
+    right: 35px;
+    z-index: 1;
+}
+
+input:focus {
     outline: none;
 }
 
