@@ -90,6 +90,12 @@ body {
     right: 20px;
 }  
 
+.edit {
+    position: absolute;
+    right: 35px;
+    top: 5px;
+}
+
 .empty {
     display: block;
     font-size: 30px;

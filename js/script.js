@@ -60,15 +60,20 @@ const addDiv = function() {
     text.classList.add(`text${count}`);
     document.querySelector(`.list${count}`).appendChild(text);
 
+    const edit = document.createElement('span');
+    edit.classList.add(`edit${count}`, `edit`);
+    document.querySelector(`.list${count}`).appendChild(edit);
+
     const del = document.createElement('span');
     del.classList.add(`delete${count}`, `delete`);
     document.querySelector(`.list${count}`).appendChild(del);
     
     circle.addEventListener('click', () => {
         circle.style.color = '#87C540';
-        circle.innerText = 'v';
         text.style.textDecoration = 'line-through';
     });
+
+   
     del.addEventListener('click', () => {
         div.style.display = 'none';
         countShow--;
@@ -87,10 +92,10 @@ const addToDoList = function () {
     } else alert('You must write something!')
 };
 
-const addCircleAndDelete = function () {
+const addCircleAndDelete = function() {
     document.querySelector(`.circle${count}`).innerHTML = `<i style='font-size:20px' class='fas'>&#xf13a;</i>`;
-    document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:20px' class='far edit'>&#xf044;
-                                                        </i> <i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
+    document.querySelector(`.edit${count}`).innerHTML = `<i style='font-size:20px' class='far edit'>&#xf044;</i>`;
+    document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
 };
 
 //----------------input keyup ENTER-----------------------------------------
