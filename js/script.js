@@ -1,3 +1,4 @@
+//---------------------Variabels-----------------------------------------
 let count = 1;
 let countShow = 0;
 let changeText;
@@ -48,6 +49,33 @@ const getDay = function () {
     }, 1000);
 })();
 
+const ready = function(circle, text) {
+    circle.addEventListener('click', function() {
+        circle.style.color = '#87C540';
+        text.style.textDecoration = 'line-through';
+    });
+};
+
+const changeToDo = function(edit, text) {
+    edit.addEventListener('click', function() {
+        document.querySelector('.inputEdit').style.display = 'block';
+        document.querySelector('.inputEdit').value = text.innerText;
+
+        changeText = function() {
+            text.innerText = document.querySelector('.inputEdit').value;
+            document.querySelector('.inputEdit').style.display = 'none';
+        };
+    });
+};
+
+const remove = function (del, div) {
+    del.addEventListener('click', function() {
+        div.style.display = 'none';
+        countShow--;
+        if(countShow == 0) document.querySelector('.empty').style.display = 'block';
+    });
+};
+
 const addDiv = function() {
 
     const div = document.createElement('div');
@@ -70,27 +98,10 @@ const addDiv = function() {
     del.classList.add(`delete${count}`, `delete`);
     document.querySelector(`.list${count}`).appendChild(del);
     
-    circle.addEventListener('click', () => {
-        circle.style.color = '#87C540';
-        text.style.textDecoration = 'line-through';
-    });
+    ready(circle, text);
+    changeToDo (edit, text);
+    remove(del, div);
 
-    edit.addEventListener('click', () => {
-        document.querySelector('.inputEdit').style.display = 'block';
-        document.querySelector('.inputEdit').value = text.innerText;
-        changeText = () => {
-            text.innerText = document.querySelector('.inputEdit').value;
-            document.querySelector('.inputEdit').style.display = 'none';
-        }
-    });
-
-    del.addEventListener('click', () => {
-        div.style.display = 'none';
-        countShow--;
-        if(countShow == 0) document.querySelector('.empty').style.display = 'block';
-    });
-    
-    
 };
 
 const addToDoList = function () {
@@ -126,6 +137,9 @@ const enterEdit = (event) => {
         changeText();
     }
 };
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
 document.querySelector('.fas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';
 });
