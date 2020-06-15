@@ -1,4 +1,5 @@
 let count = 1;
+let countShow = 0;
 const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August",
                 "September", "October", "November", "December"];
@@ -57,6 +58,7 @@ const addToDoList = function () {
         document.querySelector('.input').value = '';
         document.querySelector('.input').style.display = 'none';
         count++;
+        countShow++;
     } else alert('You must write something!')
 }
 
@@ -75,6 +77,15 @@ const addCircleAndDelete = function (x) {
 
 for(let i = 1; i < 6; i++) {
     addCircleAndDelete(i);
+    document.querySelector(`.circle${i}`).addEventListener('click', () => {
+        document.querySelector(`.circle${i}`).style.color = 'green';
+        document.querySelector(`.circle${i}`).innerText = 'v';
+        document.querySelector(`.text${i}`).style.textDecoration = 'line-through';
+    });
+    document.querySelector(`.delete${i}`).addEventListener('click', () => {
+        document.querySelector(`.list${i}`).style.display = 'none';
+        countShow--;
+    })
 }
 
 document.querySelector('.fas').addEventListener('click', () => {

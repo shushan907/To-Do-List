@@ -69,10 +69,14 @@ body {
     border-bottom: 1px solid #BAAEE7;
     font-size: 20px;
     padding-left: 10px;
-    color: #9186b9;
+    color: rgb(114, 110, 110);
 }
 .list div span {
     padding-right: 10px;
+}
+
+.list div span:nth-child(2) {
+    color: #9C20B5;
 }
 
 .delete {
