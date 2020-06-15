@@ -19,13 +19,17 @@ body {
     position: relative;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #454776;
 }
 
 .day, .time {
     position: absolute;
     bottom: 5px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
+    color: #FAD8B8;
 }
 
 .time {
@@ -66,7 +70,8 @@ body {
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid #BAAEE7;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
     padding-left: 10px;
     color: rgb(114, 110, 110);
 }
@@ -75,7 +80,8 @@ body {
 }
 
 .list div span:nth-child(2) {
-    color: #9C20B5;
+    color: #BAAEE7;
+    font-weight: normal;
 }
 
 .delete {
