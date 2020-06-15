@@ -106,7 +106,7 @@ const addToDoList = function () {
 
 const addCircleAndDelete = function() {
     document.querySelector(`.circle${count}`).innerHTML = `<i style='font-size:20px' class='fas'>&#xf13a;</i>`;
-    document.querySelector(`.edit${count}`).innerHTML = `<i style='font-size:20px' class='far edit'>&#xf044;</i>`;
+    document.querySelector(`.edit${count}`).innerHTML = `<label for='labEdit'><i style='font-size:20px' class='far edit'>&#xf044;</i></label>`;
     document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
 };
 
