@@ -65,7 +65,7 @@ const addDiv = function() {
     document.querySelector(`.list${count}`).appendChild(del);
     
     circle.addEventListener('click', () => {
-        circle.style.color = 'green';
+        circle.style.color = '#87C540';
         circle.innerText = 'v';
         text.style.textDecoration = 'line-through';
     });
@@ -88,8 +88,9 @@ const addToDoList = function () {
 };
 
 const addCircleAndDelete = function () {
-    document.querySelector(`.circle${count}`).innerText = 'o';
-    document.querySelector(`.delete${count}`).innerText = 'x';
+    document.querySelector(`.circle${count}`).innerHTML = `<i style='font-size:20px' class='fas'>&#xf13a;</i>`;
+    document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:20px' class='far edit'>&#xf044;
+                                                        </i> <i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
 };
 
 //----------------input keyup ENTER-----------------------------------------
