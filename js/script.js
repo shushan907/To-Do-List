@@ -1,5 +1,7 @@
 let count = 1;
 let countShow = 0;
+let changeText;
+
 const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August",
                 "September", "October", "November", "December"];
@@ -75,12 +77,20 @@ const addDiv = function() {
 
     edit.addEventListener('click', () => {
         document.querySelector('.inputEdit').style.display = 'block';
+        document.querySelector('.inputEdit').value = text.innerText;
+        changeText = () => {
+            text.innerText = document.querySelector('.inputEdit').value;
+            document.querySelector('.inputEdit').style.display = 'none';
+        }
     });
+
     del.addEventListener('click', () => {
         div.style.display = 'none';
         countShow--;
         if(countShow == 0) document.querySelector('.empty').style.display = 'block';
     });
+    
+    
 };
 
 const addToDoList = function () {
@@ -111,6 +121,11 @@ const enter = (event) => {
     }
 };
 
+const enterEdit = (event) => {
+    if (event.key === 'Enter') {
+        changeText();
+    }
+};
 document.querySelector('.fas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';
 });
