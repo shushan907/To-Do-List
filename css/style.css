@@ -9,7 +9,7 @@ body {
     margin: 10px auto;
     width: 718px;
     background-color: white;
-    border: 1px solid #BAAEE7;
+    border: 3px solid #BAAEE7;
     min-height: 600px;
     border-radius: 15px;
 }
@@ -82,3 +82,11 @@ body {
     position: absolute;
     right: 20px;
 }  
+
+.empty {
+    display: block;
+    font-size: 30px;
+    color: #9C20B5;
+    text-align: center;
+    margin-top: 20px;
+}

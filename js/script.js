@@ -51,18 +51,23 @@ const getDay = function () {
 })();
 
 const addDiv = function() {
+
     const div = document.createElement('div');
     div.classList.add(`list${count}`);
     document.querySelector('.list').appendChild(div);
+
     const circle = document.createElement('span');
     circle.classList.add(`circle${count}`);
     document.querySelector(`.list${count}`).appendChild(circle);
+
     const text = document.createElement('span');
     text.classList.add(`text${count}`);
     document.querySelector(`.list${count}`).appendChild(text);
+
     const del = document.createElement('span');
     del.classList.add(`delete${count}`, `delete`);
     document.querySelector(`.list${count}`).appendChild(del);
+    
     circle.addEventListener('click', () => {
         circle.style.color = 'green';
         circle.innerText = 'v';
@@ -71,7 +76,8 @@ const addDiv = function() {
     del.addEventListener('click', () => {
         div.style.display = 'none';
         countShow--;
-    })
+        if(countShow == 0) document.querySelector('.empty').style.display = 'block';
+    });
 };
 
 const addToDoList = function () {
@@ -94,6 +100,7 @@ const addCircleAndDelete = function () {
 
 const enter = (event) => {
     if (event.key === 'Enter') {
+        document.querySelector('.empty').style.display = 'none';
         addDiv();
         addCircleAndDelete();
         addToDoList();
