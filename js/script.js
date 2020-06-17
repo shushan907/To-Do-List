@@ -16,6 +16,10 @@ const setQS = (selector, value) => {
     document.querySelector(selector).innerText = value; 
 };
 
+const displayChange = function (className, value) {
+    document.querySelector(className).style.display = value;
+};
+
 const addZero = function(i) {
     if (i < 10) {
       i = "0" + i;
@@ -58,12 +62,12 @@ const ready = function(circle, text) {
 
 const changeToDo = function(edit, text) {
     edit.addEventListener('click', function() {
-        document.querySelector('.inputEdit').style.display = 'block';
+        displayChange('.inputEdit', 'block');   
         document.querySelector('.inputEdit').value = text.innerText;
 
         changeText = function() {
             text.innerText = document.querySelector('.inputEdit').value;
-            document.querySelector('.inputEdit').style.display = 'none';
+            displayChange('.inputEdit', 'none'); 
         };
     });
 };
@@ -72,7 +76,7 @@ const remove = function (del, div) {
     del.addEventListener('click', function() {
         div.remove();
         countShow--;
-        if(countShow == 0) document.querySelector('.empty').style.display = 'block';
+        if(countShow == 0) displayChange('.empty','block');
     });
 };
 
@@ -87,7 +91,7 @@ const search = function() {
             }
         }
     }
-    document.querySelector('.inputSearch').style.display = 'none';
+    displayChange('.inputSearch', 'none');
 };
 
 const addDiv = function() {
@@ -129,7 +133,7 @@ const addToDoList = function () {
     if(inputValue) {
         document.querySelector(`.text${count}`).innerText = inputValue;
         document.querySelector('.input').value = '';
-        document.querySelector('.input').style.display = 'none';
+        displayChange('.input', 'none');
         count++;
         countShow++;
     } else alert('You must write something!')
@@ -143,11 +147,11 @@ const showAllDivInList = function() {
 };
 
 const hide = function() {
-    document.querySelector('.list').style.display = 'none';
+    displayChange('.list','none');
 };
 
 const showHide = function() {
-    document.querySelector('.list').style.display = 'block';
+    displayChange('.list','block');
 };
 
 //----------------input keyup ENTER-----------------------------------------
@@ -155,7 +159,7 @@ const showHide = function() {
 const enter = (event) => {
     if (event.key === 'Enter') {
         if(document.querySelector('.input').value != '') {
-            document.querySelector('.empty').style.display = 'none';
+            displayChange('.empty', 'none');
             addDiv();
             addCircleAndDelete();
         }
@@ -178,25 +182,25 @@ const enterSearch = (event) => {
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
 document.querySelector('.addfas').addEventListener('click', () => {
-    document.querySelector('.input').style.display = 'inline';
+    displayChange('.input','inline');
     showAllDivInList();
 });
 
 document.querySelector('.searchfas').addEventListener('click', () => {
-    document.querySelector('.inputSearch').style.display = 'inline';
+    displayChange('.inputSearch', 'inline');
     showAllDivInList();
 });
 
 document.querySelector('.log').addEventListener('click', () => {
-    document.querySelector('#registerForm').style.display = 'none';
-    document.querySelector('#loginForm').style.display = 'block';
+    displayChange('#registerForm','none');
+    displayChange('#loginForm', 'block');
 });
 
 document.querySelector('.reg').addEventListener('click', () => {
-    document.querySelector('#registerForm').style.display = 'block';
-    document.querySelector('#loginForm').style.display = 'none';
+    displayChange('#registerForm', 'block');
+    displayChange('#loginForm', 'none');
 });
 
 document.querySelector('.login').addEventListener('click', () => {
-    document.querySelector('.loginRegister').style.display = 'block'
+    displayChange('.loginRegister', 'block');
 });
