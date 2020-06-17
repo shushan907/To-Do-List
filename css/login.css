@@ -1,0 +1,59 @@
+.loginRegister {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #454776;
+    font-size: 18px;
+    color: #FAD8B8;
+}
+.logReg {
+    width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+}
+.log, .reg {
+    font-size: 20px;
+    width: 197px;
+    outline: none;
+    border: none;
+    height: 50px;
+}
+.log {
+    background-color: #FAD8B8;
+    color: #454776;
+}
+.reg {
+    background-color: black;
+    color: #FAD8B8;
+}
+h2 {
+    text-align: center;
+}
+.logReg input {
+    width: 350px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 35px;
+}
+.but {
+    text-align: center;
+}
+.logButton, .regButton {
+    outline: none;
+    border: 1px solid #FAD8B8;
+    background-color: #454776;
+    box-shadow: 1px 1px bisque;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: #FAD8B8;
+}
+#registerForm {
+display: none;
+}
+form p {
+    padding-left: 20px;
+}

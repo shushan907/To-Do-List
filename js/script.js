@@ -187,3 +187,16 @@ document.querySelector('.searchfas').addEventListener('click', () => {
     showAllDivInList();
 });
 
+document.querySelector('.log').addEventListener('click', () => {
+    document.querySelector('#registerForm').style.display = 'none';
+    document.querySelector('#loginForm').style.display = 'block';
+});
+
+document.querySelector('.reg').addEventListener('click', () => {
+    document.querySelector('#registerForm').style.display = 'block';
+    document.querySelector('#loginForm').style.display = 'none';
+});
+
+document.querySelector('.login').addEventListener('click', () => {
+    document.querySelector('.loginRegister').style.display = 'block'
+});
