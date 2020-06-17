@@ -76,6 +76,21 @@ const remove = function (del, div) {
     });
 };
 
+const search = function() {
+    const inputSearchValue = document.querySelector('.inputSearch').value;
+    console.log(inputSearchValue)
+    if (inputSearchValue) {
+        //console.log(inputSearchValue)
+        const lists = document.querySelectorAll('.list div span:nth-child(2)')
+        for (let i = 0 ; i < lists.length; i++) {
+            if (!lists[i].innerText.includes(inputSearchValue)) {
+                lists[i].parentElement.style.display = 'none';
+            }
+        }
+    }
+    document.querySelector('.inputSearch').style.display = 'none';
+};
+
 const addDiv = function() {
 
     const div = document.createElement('div');
@@ -104,6 +119,12 @@ const addDiv = function() {
 
 };
 
+const addCircleAndDelete = function() {
+    document.querySelector(`.circle${count}`).innerHTML = `<i style='font-size:20px' class='fas'>&#xf13a;</i>`;
+    document.querySelector(`.edit${count}`).innerHTML = `<label for='labEdit'><i style='font-size:20px' class='far edit'>&#xf044;</i></label>`;
+    document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
+};
+
 const addToDoList = function () {
     const inputValue = document.querySelector('.input').value;
     if(inputValue) {
@@ -113,12 +134,6 @@ const addToDoList = function () {
         count++;
         countShow++;
     } else alert('You must write something!')
-};
-
-const addCircleAndDelete = function() {
-    document.querySelector(`.circle${count}`).innerHTML = `<i style='font-size:20px' class='fas'>&#xf13a;</i>`;
-    document.querySelector(`.edit${count}`).innerHTML = `<label for='labEdit'><i style='font-size:20px' class='far edit'>&#xf044;</i></label>`;
-    document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
 };
 
 const hide = function() {
@@ -133,9 +148,11 @@ const showHide = function() {
 
 const enter = (event) => {
     if (event.key === 'Enter') {
-        document.querySelector('.empty').style.display = 'none';
-        addDiv();
-        addCircleAndDelete();
+        if(document.querySelector('.input').value != '') {
+            document.querySelector('.empty').style.display = 'none';
+            addDiv();
+            addCircleAndDelete();
+        }
         addToDoList();
     }
 };
@@ -145,9 +162,21 @@ const enterEdit = (event) => {
         changeText();
     }
 };
+const enterSearch = (event) => {
+    if (event.key === 'Enter') {
+        search();
+    } 
+}
 
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
 document.querySelector('.addfas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';
 });
+
+document.querySelector('.searchfas').addEventListener('click', () => {
+    document.querySelector('.inputSearch').style.display = 'inline';
+});
+
+
+
