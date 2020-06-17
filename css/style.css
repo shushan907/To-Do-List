@@ -2,6 +2,7 @@ body {
     padding: 0;
     margin: 0;
     background-color: antiquewhite;
+    position: relative;
 }
 
 .main {
@@ -43,7 +44,9 @@ body {
 .add, .search, .hide {
     padding-left: 10px;
     position: absolute;
-    bottom: 12px;
+    bottom: 10px;
+    height: 50px;
+    line-height: 50px;
 }
 
 .add {
@@ -135,4 +138,17 @@ input:focus {
     height: 50px;
   }
   
+.login {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    color: #FAD8B8;
+    background-color: #454776;
+    border: none;
+    font-size: 15px;
+    outline:none;
+}
   
