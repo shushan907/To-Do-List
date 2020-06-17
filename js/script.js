@@ -78,11 +78,10 @@ const remove = function (del, div) {
 
 const search = function() {
     const inputSearchValue = document.querySelector('.inputSearch').value;
-    console.log(inputSearchValue)
+ 
     if (inputSearchValue) {
-        //console.log(inputSearchValue)
         const lists = document.querySelectorAll('.list div span:nth-child(2)')
-        for (let i = 0 ; i < lists.length; i++) {
+        for (let i = 0; i < lists.length; i++) {
             if (!lists[i].innerText.includes(inputSearchValue)) {
                 lists[i].parentElement.style.display = 'none';
             }
@@ -136,6 +135,13 @@ const addToDoList = function () {
     } else alert('You must write something!')
 };
 
+const showAllDivInList = function() {
+    const listDiv = document.querySelectorAll('.list div');
+    for (let i = 0; i < listDiv.length; i++) {
+        listDiv[i].style.display = 'block'
+    }
+};
+
 const hide = function() {
     document.querySelector('.list').style.display = 'none';
 };
@@ -162,21 +168,22 @@ const enterEdit = (event) => {
         changeText();
     }
 };
+
 const enterSearch = (event) => {
     if (event.key === 'Enter') {
         search();
     } 
-}
+};
 
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
 document.querySelector('.addfas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';
+    showAllDivInList();
 });
 
 document.querySelector('.searchfas').addEventListener('click', () => {
     document.querySelector('.inputSearch').style.display = 'inline';
+    showAllDivInList();
 });
-
-
 

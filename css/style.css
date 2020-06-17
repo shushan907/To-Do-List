@@ -76,8 +76,8 @@ body {
 
 .inputEdit{
     position: absolute;
-    bottom: 5px;
-    right: 35px;
+    bottom: 12px;
+    left: 47px;
     z-index: 1;
 }
 
