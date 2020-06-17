@@ -70,7 +70,7 @@ const changeToDo = function(edit, text) {
 
 const remove = function (del, div) {
     del.addEventListener('click', function() {
-        div.style.display = 'none';
+        div.remove();
         countShow--;
         if(countShow == 0) document.querySelector('.empty').style.display = 'block';
     });
