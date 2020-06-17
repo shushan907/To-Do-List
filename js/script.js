@@ -121,6 +121,14 @@ const addCircleAndDelete = function() {
     document.querySelector(`.delete${count}`).innerHTML = `<i style='font-size:24px' class='far del'>&#xf2ed;</i>`;
 };
 
+const hide = function() {
+    document.querySelector('.list').style.display = 'none';
+};
+
+const showHide = function() {
+    document.querySelector('.list').style.display = 'block';
+};
+
 //----------------input keyup ENTER-----------------------------------------
 
 const enter = (event) => {
@@ -140,6 +148,6 @@ const enterEdit = (event) => {
 
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
-document.querySelector('.fas').addEventListener('click', () => {
+document.querySelector('.addfas').addEventListener('click', () => {
     document.querySelector('.input').style.display = 'inline';
 });

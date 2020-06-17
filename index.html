@@ -20,14 +20,27 @@
             <input type="text" id='labEdit'class = 'inputEdit' onkeyup="enterEdit(event)" maxlength="45" placeholder="">
         </div>
 
+        <div class="hide">
+        <input type='checkbox' id='hideToDo' onclick="if(this.checked){hide()} else {showHide()}"> 
+            <span><label for='hideToDo'>hide</label></span>
+        </div>
+
+        <div class="search">
+            <label for="labSearch"><i style='font-size:20px; color:#454776' class='fas'>&#xf002;</i></label>
+            <input type="text" id='labSearch' class='inputSearch' onkeyup="enter(event)" placeholder='...' maxlength="25">
+        </div>
+
         <div class="add">
-            <label for="lab"><i style='font-size:20px; color:#454776' class='fas'>&#xf0fe;</i></label>
+            <label for="lab"><i style='font-size:20px; color:#454776' class='fas addfas'>&#xf0fe;</i></label>
             <input type="text" id='lab' class='input' onkeyup="enter(event)" placeholder='...' maxlength="45">
         </div>
     
     </div>
     <script src="./js/script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
-    <script src="./js/firebase.js"></script>
+    <!--
+        <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+        <script src="./js/firebase.js"></script>
+    -->
+    
 </body>
 </html>

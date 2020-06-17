@@ -10,7 +10,7 @@ body {
     width: 718px;
     background-color: white;
     border: 3px solid #454776;
-    min-height: 600px;
+    height: 600px;
     border-radius: 15px;
 }
 
@@ -40,16 +40,30 @@ body {
     left: 5px;
 }
 
-.add {
+.add, .search, .hide {
     padding-left: 10px;
     position: absolute;
-    left: 15px;
     bottom: 12px;
 }
 
-.input, .inputEdit {
+.add {
+    left: 15px;
+}
+
+.search {
+    left: 320px;
+}
+
+.hide {
+    padding-left: 8px;
+    right: 30px;
+    font-size: 20px;
+    color: #454776;
+}
+
+.input, .inputEdit, .inputSearch {
     display: none;
-    width: 600px;
+    width: 200px;
     height: 40px;
     padding-left: 10px;
     margin-left: 20px;
@@ -70,7 +84,10 @@ body {
 input:focus {
     outline: none;
 }
-
+.list {
+    overflow-y: auto;
+    height: 255px;
+}
 .list div {
     position: relative;
     width: 98%;
@@ -110,3 +127,12 @@ input:focus {
     text-align: center;
     margin-top: 20px;
 }
+
+::-webkit-scrollbar {
+    width: 15px;
+    background: #454776; 
+    border-radius: 10px;
+    height: 50px;
+  }
+  
+  
