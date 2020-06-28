@@ -8,6 +8,33 @@ var firebaseConfig = {
     appId: "1:472624710617:web:d40b8e459389e751d68fc8",
     measurementId: "G-LFTR5TB6Y0"
   };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+
+  const userName = document.getElementById('regUserName');
+  const loginEmail =  document.getElementById('loginEmail');
+  const loginPassword =  document.getElementById('loginPassword');
+  const regEmail =  document.getElementById('regEmail');
+  const regPassword =  document.getElementById('regPassword');
+  const login = document.getElementById('loginForm');
+  const register = document.getElementById('registerForm');
+
+  const database = firebase.database();
+  const rootRef = database.ref('/users');
+
+  register.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let i = 0;
+    rootRef.child(i).set({
+        Email: regEmail.value,
+        password: regPassword.value,
+        userName: userName.value,
+    });
+    i++;
+    displayChange('.loginRegister', 'none');
+  });
+
+  /*login.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    displayChange('.loginRegister', 'none');
+  });*/

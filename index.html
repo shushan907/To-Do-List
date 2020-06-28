@@ -51,29 +51,28 @@
             <form action="" id='loginForm'>
                 <h2>Login in to your account</h2>
                 <p>Email</p>
-                <p><input type="text"></p>
+                <p><input type="email" id='loginEmail'></p>
                 <p>Password</p>
-                <p><input type="password"></p>
+                <p><input type="password" id='loginPassword' autocomplete=""></p>
                 <p class="but"><button class='logButton'>Log In</button></p>
             </form>
             <form action="" id='registerForm'>
                 <h2>Create new account</h2>
                 <p>User Name</p>
-                <p><input type="text"></p>
+                <p><input type="text" id='regUserName'></p>
                 <p>Email</p>
-                <p><input type="text"></p>
+                <p><input type="email" id='regEmail'></p>
                 <p>Password</p>
-                <p><input type="password"></p>
+                <p><input type="password" id='regPassword' autocomplete=""></p>
                 <p class='but'><button class='regButton'>Register</button></p>
             </form>
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    <script src="./js/firebase.js"></script>
     <script src="./js/script.js"></script>
-    <!--
-        <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
-        <script src="./js/firebase.js"></script>
-    -->
     
 </body>
 </html>

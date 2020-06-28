@@ -136,7 +136,7 @@ const addToDoList = function () {
         displayChange('.input', 'none');
         count++;
         countShow++;
-    } else alert('You must write something!')
+    } else alert('You must write something!');
 };
 
 const showAllDivInList = function() {
