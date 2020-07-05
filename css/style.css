@@ -87,10 +87,12 @@ body {
 input:focus {
     outline: none;
 }
+
 .list {
     overflow-y: auto;
     height: 255px;
 }
+
 .list div {
     position: relative;
     width: 98%;
@@ -102,6 +104,7 @@ input:focus {
     padding-left: 10px;
     color: rgb(114, 110, 110);
 }
+
 .list div span {
     padding-right: 10px;
 }

@@ -2,58 +2,54 @@
     display: none;
     position: absolute;
     z-index: 10;
-    top: 0px;
-    left: 0px;
     height: 100%;
     width: 100%;
-    background-color: #454776;
+    background-color: #FAEBD7;
     font-size: 18px;
-    color: #FAD8B8;
+    color: hsl(238, 26%, 37%);
+    left: 0;
+    top: 0;
+    padding-top: 50px;
 }
-.logReg {
-    width: 400px;
-    margin: 0 auto;
-    padding: 50px;
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
-.log, .reg {
-    font-size: 20px;
-    width: 197px;
-    outline: none;
-    border: none;
-    height: 50px;
-}
-.log {
-    background-color: #FAD8B8;
-    color: #454776;
-}
-.reg {
-    background-color: black;
-    color: #FAD8B8;
-}
-h2 {
-    text-align: center;
-}
-.logReg input {
-    width: 350px;
-    height: 35px;
-    font-size: 18px;
-    line-height: 35px;
-}
-.but {
-    text-align: center;
-}
-.logButton, .regButton {
-    outline: none;
+
+#firebaseui-auth-container input {
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 5px;
     border: 1px solid #FAD8B8;
+    border-radius: 8px;
     background-color: #454776;
-    box-shadow: 1px 1px bisque;
-    padding: 5px 10px;
-    font-size: 18px;
+    color:#FAD8B8;
+    font-size: 20px;
+}
+
+#firebaseui-auth-container button {
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
     color: #FAD8B8;
+    background-color: #454776;
+    border: none;
+    font-size: 15px;
+    outline:none;
 }
-#registerForm {
-display: none;
+
+#firebaseui-auth-container label {
+    font-size: 15px;
+    display:  block;
 }
-form p {
-    padding-left: 20px;
+
+#firebaseui-auth-container a {
+    color: black;
+}
+
+.close:hover {
+    cursor: pointer;
 }

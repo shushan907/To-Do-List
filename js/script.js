@@ -191,16 +191,13 @@ document.querySelector('.searchfas').addEventListener('click', () => {
     showAllDivInList();
 });
 
-document.querySelector('.log').addEventListener('click', () => {
-    displayChange('#registerForm','none');
-    displayChange('#loginForm', 'block');
-});
-
-document.querySelector('.reg').addEventListener('click', () => {
-    displayChange('#registerForm', 'block');
-    displayChange('#loginForm', 'none');
-});
-
 document.querySelector('.login').addEventListener('click', () => {
     displayChange('.loginRegister', 'block');
+    if(document.querySelector('.login').innerHTML == 'Log out') {
+        firebase.auth().signOut();
+    }
+});
+
+document.querySelector('.close').addEventListener('click', () => {
+    displayChange('.loginRegister', 'none');
 });

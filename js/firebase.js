@@ -10,31 +10,33 @@ var firebaseConfig = {
   };
   firebase.initializeApp(firebaseConfig);
 
-  const userName = document.getElementById('regUserName');
-  const loginEmail =  document.getElementById('loginEmail');
-  const loginPassword =  document.getElementById('loginPassword');
-  const regEmail =  document.getElementById('regEmail');
-  const regPassword =  document.getElementById('regPassword');
-  const login = document.getElementById('loginForm');
-  const register = document.getElementById('registerForm');
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    var uiConfig = {
+    callbacks: {
+      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        return true;
+      },
+      uiShown: function() {
+        document.getElementById('loader').style.display = 'none';
+      }
+    },
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    signInFlow: 'popup',
+    signInSuccessUrl: 'index.html',
+    signInOptions: [
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    tosUrl: 'index.html',
+  };
+  ui.start('#firebaseui-auth-container', uiConfig);
 
   const database = firebase.database();
-  const rootRef = database.ref('/users');
 
-  register.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let i = 0;
-    rootRef.child(i).set({
-        Email: regEmail.value,
-        password: regPassword.value,
-        userName: userName.value,
-    });
-    i++;
-    displayChange('.loginRegister', 'none');
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      document.querySelector('.login').innerHTML = 'Log out';
+      //const list = database.ref(`/${user.uid}`);
+    } else {
+      document.querySelector('.login').innerHTML = 'Log in'
+    }
   });
-
-  /*login.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    displayChange('.loginRegister', 'none');
-  });*/
